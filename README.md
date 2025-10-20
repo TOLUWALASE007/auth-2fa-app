@@ -1,6 +1,6 @@
 # 🔐 Auth 2FA App
 
-A secure 2FA authentication app built with Next.js, TypeScript, Tailwind CSS, and MongoDB. Features user registration, login, two-factor authentication with verification codes, JWT token management, and protected dashboard access. Complete full-stack solution with modern UI.
+A secure 2FA authentication app built with Next.js, TypeScript, Tailwind CSS, and MongoDB. Features user registration, login, two-factor authentication with verification codes, JWT token management, and protected dashboard access. Complete full-stack solution with modern UI. 🚀
 
 ![Next.js](https://img.shields.io/badge/Next.js-15.5.6-black)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue)
