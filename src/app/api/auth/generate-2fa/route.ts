@@ -15,9 +15,9 @@ export async function POST(request: NextRequest) {
     const token = authHeader.substring(7);
     const payload = verifyToken(token);
 
-    if (!payload) {
+    if (!payload || !payload.email) {
       return NextResponse.json(
-        { error: 'Invalid token' },
+        { error: 'Invalid token or missing email' },
         { status: 401 }
       );
     }
