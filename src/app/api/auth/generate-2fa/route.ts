@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { generateTOTPSecret } from '@/lib/totp';
 import { verifyToken } from '@/lib/auth';
+import { generate2FACode } from '@/lib/2fa';
 
 export async function POST(request: NextRequest) {
   try {
@@ -22,15 +22,13 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Generate 2FA secret and QR code
-    const { secret, qrCodeUrl } = generateTOTPSecret(payload.email, '2FA Auth App');
-
-    // In a real app, you'd save the secret to the user's record in MongoDB
-    // For now, we'll return it (in production, never return the secret to client)
+    // Generate 2FA code (custom implementation)
+    const code = generate2FACode();
 
     return NextResponse.json({
-      secret,
-      qrCodeUrl,
+      message: '2FA code generated successfully',
+      code: code, // In production, this would be sent via email/SMS
+      expiresIn: '5 minutes'
     });
   } catch (error) {
     console.error('Generate 2FA error:', error);
